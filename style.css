@@ -1,0 +1,446 @@
+/* ==========================================================================
+   DRIVEVAULT - Premium Automotive Aesthetic & Design System
+   Brand: DRIVEVAULT | "Premium Cars. Seamless Journeys."
+   ========================================================================== */
+
+:root {
+  /* Color Palette - Dark Mode Default */
+  --bg-primary: #07111F;
+  --bg-surface: #0B132B;
+  --bg-card: rgba(14, 25, 48, 0.75);
+  --bg-card-hover: rgba(22, 38, 70, 0.85);
+  --bg-elevated: #111E38;
+  --bg-input: rgba(7, 17, 31, 0.8);
+  
+  --text-primary: #F8FAFC;
+  --text-secondary: #94A3B8;
+  --text-muted: #64748B;
+  
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-accent: rgba(37, 99, 235, 0.4);
+  --border-glow: rgba(6, 182, 212, 0.3);
+  
+  --accent-blue: #2563EB;
+  --accent-blue-hover: #1D4ED8;
+  --accent-cyan: #06B6D4;
+  --accent-cyan-hover: #0891B2;
+  --accent-emerald: #10B981;
+  --accent-amber: #F59E0B;
+  --accent-rose: #F43F5E;
+  
+  --gradient-brand: linear-gradient(135deg, #2563EB 0%, #06B6D4 100%);
+  --gradient-surface: linear-gradient(180deg, rgba(14, 25, 48, 0.8) 0%, rgba(7, 17, 31, 0.95) 100%);
+  --gradient-glow: radial-gradient(circle at 50% 0%, rgba(37, 99, 235, 0.15), transparent 70%);
+
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.45);
+  --shadow-lg: 0 20px 45px rgba(0, 0, 0, 0.6);
+  --shadow-glow: 0 0 25px rgba(37, 99, 235, 0.25);
+  --shadow-cyan-glow: 0 0 25px rgba(6, 182, 212, 0.25);
+
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+  --radius-full: 9999px;
+
+  --transition-fast: 0.15s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-normal: 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-slow: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Light Mode Overrides */
+body.theme-light {
+  --bg-primary: #F8FAFC;
+  --bg-surface: #FFFFFF;
+  --bg-card: rgba(255, 255, 255, 0.9);
+  --bg-card-hover: #FFFFFF;
+  --bg-elevated: #F1F5F9;
+  --bg-input: #FFFFFF;
+  
+  --text-primary: #0F172A;
+  --text-secondary: #475569;
+  --text-muted: #94A3B8;
+  
+  --border-subtle: rgba(15, 23, 42, 0.08);
+  --border-accent: rgba(37, 99, 235, 0.3);
+  --border-glow: rgba(6, 182, 212, 0.2);
+  
+  --gradient-surface: linear-gradient(180deg, #FFFFFF 0%, #F1F5F9 100%);
+  --gradient-glow: radial-gradient(circle at 50% 0%, rgba(37, 99, 235, 0.08), transparent 70%);
+
+  --shadow-sm: 0 2px 8px rgba(15, 23, 42, 0.06);
+  --shadow-md: 0 8px 24px rgba(15, 23, 42, 0.08);
+  --shadow-lg: 0 20px 40px rgba(15, 23, 42, 0.12);
+  --shadow-glow: 0 0 25px rgba(37, 99, 235, 0.15);
+}
+
+/* Base Setup */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  color-scheme: dark;
+}
+
+body.theme-light {
+  color-scheme: light;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  min-height: 100vh;
+  overflow-x: hidden;
+  line-height: 1.5;
+  transition: background-color var(--transition-normal), color var(--transition-normal);
+}
+
+/* Typography Enhancements */
+.font-display {
+  font-family: 'Outfit', 'Plus Jakarta Sans', sans-serif;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.25);
+  border-radius: var(--radius-full);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-blue);
+}
+
+/* Glassmorphism Styles */
+.glass-panel {
+  background: var(--bg-card);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  transition: all var(--transition-normal);
+}
+
+.glass-panel-hover:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--border-accent);
+  box-shadow: var(--shadow-glow);
+  transform: translateY(-3px);
+}
+
+.glass-nav {
+  background: rgba(7, 17, 31, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+body.theme-light .glass-nav {
+  background: rgba(255, 255, 255, 0.88);
+  border-bottom: 1px solid rgba(15, 23, 42, 0.06);
+}
+
+/* Glowing Badges & Gradients */
+.brand-gradient-text {
+  background: var(--gradient-brand);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.brand-button {
+  background: var(--gradient-brand);
+  color: #FFFFFF;
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  transition: all var(--transition-fast);
+  box-shadow: 0 4px 16px rgba(37, 99, 235, 0.35);
+  position: relative;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.brand-button:hover {
+  box-shadow: 0 6px 24px rgba(37, 99, 235, 0.55);
+  transform: translateY(-2px);
+  filter: brightness(1.08);
+}
+
+.brand-button:active {
+  transform: translateY(0);
+}
+
+.secondary-button {
+  background: var(--bg-elevated);
+  color: var(--text-primary);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  transition: all var(--transition-fast);
+}
+
+.secondary-button:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--border-accent);
+  color: var(--text-primary);
+}
+
+/* Automotive Card Aesthetics */
+.vehicle-card {
+  position: relative;
+  border-radius: var(--radius-lg);
+  background: var(--bg-card);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--border-subtle);
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal), border-color var(--transition-normal);
+  overflow: hidden;
+}
+
+.vehicle-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 35px -10px rgba(0, 0, 0, 0.6), var(--shadow-glow);
+  border-color: var(--border-accent);
+}
+
+.vehicle-card .car-image-container {
+  overflow: hidden;
+  position: relative;
+}
+
+.vehicle-card .car-image {
+  transition: transform var(--transition-slow);
+}
+
+.vehicle-card:hover .car-image {
+  transform: scale(1.05);
+}
+
+/* Range Slider Styling */
+input[type=range] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  background: transparent;
+}
+
+input[type=range]:focus {
+  outline: none;
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 6px;
+  cursor: pointer;
+  background: rgba(148, 163, 184, 0.25);
+  border-radius: var(--radius-full);
+}
+
+input[type=range]::-webkit-slider-thumb {
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  background: #06B6D4;
+  cursor: pointer;
+  -webkit-appearance: none;
+  margin-top: -7px;
+  box-shadow: 0 0 10px rgba(6, 182, 212, 0.7);
+  border: 2px solid #FFFFFF;
+  transition: transform 0.15s ease;
+}
+
+input[type=range]::-webkit-slider-thumb:hover {
+  transform: scale(1.2);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.8; }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.3s ease-out forwards;
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 4s infinite ease-in-out;
+}
+
+/* Modal Overlay & Drawer Transitions */
+.modal-backdrop {
+  background: rgba(3, 7, 18, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.modal-content-box {
+  max-height: 90vh;
+  overflow-y: auto;
+  border: 1px solid var(--border-accent);
+  box-shadow: var(--shadow-lg), var(--shadow-glow);
+}
+
+/* Custom Tabs */
+.tab-active {
+  background: var(--gradient-brand) !important;
+  color: #FFFFFF !important;
+  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.35);
+}
+
+/* Compare floating widget */
+.compare-drawer {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%) translateY(150%);
+  z-index: 45;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.compare-drawer.active {
+  transform: translateX(-50%) translateY(0);
+}
+
+/* Micro Status Badges */
+.status-pill {
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 2px 10px;
+  border-radius: var(--radius-full);
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.status-pill.available {
+  background: rgba(16, 185, 129, 0.15);
+  color: #10B981;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.status-pill.reserved {
+  background: rgba(245, 158, 11, 0.15);
+  color: #F59E0B;
+  border: 1px solid rgba(245, 158, 11, 0.3);
+}
+
+/* Stepper Bar in Booking Wizard */
+.step-circle {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.875rem;
+  transition: all 0.25s ease;
+  border: 2px solid var(--border-subtle);
+  background: var(--bg-surface);
+  color: var(--text-secondary);
+}
+
+.step-circle.active {
+  border-color: var(--accent-cyan);
+  background: var(--gradient-brand);
+  color: #FFFFFF;
+  box-shadow: 0 0 14px rgba(6, 182, 212, 0.5);
+}
+
+.step-circle.completed {
+  border-color: var(--accent-emerald);
+  background: var(--accent-emerald);
+  color: #FFFFFF;
+}
+
+/* Stylized Interactive Map Pin */
+.map-pin {
+  position: absolute;
+  cursor: pointer;
+  transform: translate(-50%, -50%);
+  transition: transform 0.2s ease;
+}
+
+.map-pin:hover {
+  transform: translate(-50%, -50%) scale(1.3);
+  z-index: 10;
+}
+
+.map-pin-pulse {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: rgba(6, 182, 212, 0.4);
+  animation: pulseGlow 2s infinite ease-out;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+}
+
+/* Toast Container */
+#toast-container {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 380px;
+  pointer-events: none;
+}
+
+.toast-item {
+  pointer-events: auto;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-accent);
+  color: var(--text-primary);
+  padding: 14px 18px;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  animation: fadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: all 0.25s ease;
+}
+
+/* Print Stylesheet for Official Booking Receipt */
+@media print {
+  nav, footer, #toast-container, .no-print, .compare-drawer, button {
+    display: none !important;
+  }
+  
+  body {
+    background: #FFFFFF !important;
+    color: #000000 !important;
+  }
+  
+  #printable-receipt-card {
+    display: block !important;
+    position: static !important;
+    width: 100% !important;
+    padding: 20px !important;
+    border: none !important;
+    box-shadow: none !important;
+    color: #000000 !important;
+  }
+}
